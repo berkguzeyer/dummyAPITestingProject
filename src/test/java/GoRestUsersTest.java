@@ -10,7 +10,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -251,5 +253,30 @@ public class GoRestUsersTest {
                 .then()
                 .statusCode(404);
     }
+
+    @Test
+    public void getUsers() {
+        Response response = given()
+                .spec(requestSpec)
+                .when()
+                .get()
+
+                .then()
+                .spec(responseSpec)
+                .statusCode(200)
+                .extract().response();
+
+        int userId0 = response.jsonPath().getInt("[0].id");
+        int userId3 = response.jsonPath().getInt("[2].id");
+
+        List<User> usersList = response.jsonPath().getList("", User.class); //using User.class because you are creating a User object (List<User>)
+
+        System.out.println("userId0 = " + userId0);
+        System.out.println("userId3 = " + userId3);
+        System.out.println("usersList = " + usersList); // making sure to have toString method in the User class
+
+
+    }
+
 
 }
