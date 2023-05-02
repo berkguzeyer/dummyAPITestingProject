@@ -49,4 +49,20 @@
 
     </dependencies>
 
+<!-- To show Jenkins where to run -->
+
+    <build>
+     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+                <suiteXmlFiles>
+                    <suiteXmlFile>src/test/java/Campus/CampusCountryAPI.xml</suiteXmlFile>   <!-- I've put **/ so it would search all the project to find this XML-->
+                </suiteXmlFiles>
+            </configuration>
+        </plugin>
+     </plugins>
+    </build>
 </project>
