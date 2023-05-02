@@ -59,7 +59,7 @@
             <version>3.0.0</version>
             <configuration>
                 <suiteXmlFiles>
-                    <suiteXmlFile>src/test/java/Campus/CampusCountryAPI.xml</suiteXmlFile>   <!-- I've put **/ so it would search all the project to find this XML-->
+                    <suiteXmlFile>src/test/java/Campus/CampusCountryAPI.xml</suiteXmlFile>   <!--I've put **/ so it would search all the project to find this XML-->
                 </suiteXmlFiles>
             </configuration>
         </plugin>
